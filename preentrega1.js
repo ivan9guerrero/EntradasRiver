@@ -6,7 +6,7 @@ let entrada;
 let precio;
 let cantidad;
 let total = 0;
-let comprarMas = SI; // Inicializado en 'si' para comenzar el bucle
+let comprarMas = SI; 
 let continuar;
 
 function comprar_entrada(mail) {
@@ -21,7 +21,7 @@ function comprar_entrada(mail) {
     let salir = 'S';
     let compras = [];
 
-    // Validar el correo electrónico
+
     do {
         mail = prompt('Bienvenido a la plataforma de entradas de River Plate\n Ingrese su email: ');
         if (!/\S+@\S+\.\S+/.test(mail)) {
@@ -41,17 +41,16 @@ function comprar_entrada(mail) {
         if (!categorias[tipo_entrada] && tipo_entrada !== salir) {
             alert('Ingresaste una categoría que no existe!');
         } else if (tipo_entrada !== salir) {
-            // Validar que la cantidad ingresada sea un número entero positivo
+
             do {
                 cantidad = prompt('Ingrese la cantidad de entradas: ');
                 if (!/^\d+$/.test(cantidad)) {
-                    alert('Por favor, ingresa un número entero positivo para la cantidad de entradas.');
+                    alert('Por favor, ingresa una de las opciones.');
                 }
             } while (!/^\d+$/.test(cantidad));
 
             cantidad = parseInt(cantidad);
 
-            // Asumiendo que el precio es fijo para cada categoría
             switch (tipo_entrada) {
                 case '1':
                     precio = 100;
@@ -70,7 +69,7 @@ function comprar_entrada(mail) {
             }
             total += precio * cantidad;
 
-            // Almacenar la información de la compra
+
             compras.push({
                 categoria: categorias[tipo_entrada],
                 cantidad: cantidad
@@ -86,7 +85,7 @@ function comprar_entrada(mail) {
     }
 
     if (comprarMas === NO) {
-        // Construir el mensaje final detallando las categorías y cantidades de entradas compradas
+
         let mensajeFinal = 'Gracias por tu compra. Estas son tus entradas:\n';
         for (let compra of compras) {
             mensajeFinal += `${compra.categoria}: ${compra.cantidad} entradas\n`;
@@ -96,5 +95,5 @@ function comprar_entrada(mail) {
     }
 }
 
-// Llamada a la función con un ejemplo de correo
+
 comprar_entrada('correo_ejemplo@gmail.com');
