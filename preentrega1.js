@@ -10,7 +10,6 @@ let comprarMas = SI;
 let continuar;
 
 function comprar_entrada(mail) {
-    let Ubicación;
     let tipo_entrada;
     let categorias = {
         '1': 'Popular $100',
